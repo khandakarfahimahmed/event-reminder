@@ -1,0 +1,37 @@
+<div class="container">
+  <h3>Codeworks eventing</h3>
+</div>
+<div class="first-event">
+  <div class="card">
+    <p class="next-event">NEXT EVENT</p>
+    <div *ngIf="events.length > 0">
+      <div>
+        <p>{{ events[0].date.slice(0, 10) }}</p>
+        <h2>{{ events[0].title }}</h2>
+        <p>{{ events[0].date | date : "short" }}</p>
+        <p>{{ events[0].venue }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rest-events">
+  <div *ngIf="events.length > 1">
+    <div *ngFor="let event of events.slice(1)">
+      <div class="card1">
+        <div class="orange-section">
+          <p>{{ event.date.slice(0, 10) | customDate }}</p>
+        </div>
+        <div class="white-section">
+          <!-- Content for the white section -->
+          <h2>{{ event.title }}</h2>
+          <p>{{ event.date | date : "short" }}</p>
+
+          <p>{{ event.venue }}</p>
+        </div>
+      </div>
+
+      <!-- <p>{{ event.date }}</p> -->
+    </div>
+  </div>
+</div>
+<app-add-new-event (newEvent)="addEvent($event)"></app-add-new-event>

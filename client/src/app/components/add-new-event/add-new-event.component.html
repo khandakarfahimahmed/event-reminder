@@ -1,0 +1,36 @@
+<section>
+  <form [formGroup]="eventingForm" (ngSubmit)="onSubmit()">
+    <h3>Create a new event</h3>
+    <label for="title">TITLE</label>
+    <input
+      id="title"
+      type="text"
+      formControlName="title"
+      required
+      placeholder="Insert a title..."
+    />
+    <br />
+
+    <label for="date">DATE</label>
+    <input
+      id="date"
+      type="datetime-local"
+      formControlName="date"
+      required
+      placeholder="05/12/2019, 12:09"
+      [min]="minDateTime"
+    />
+
+    <br />
+
+    <label for="venue">VENUE</label>
+    <input
+      id="venue"
+      type="text"
+      formControlName="venue"
+      required
+      placeholder="Insert a venue..."
+    />
+    <button type="submit">Create</button>
+  </form>
+</section>
